@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import SignOutBtn from "./sign-out-btn";
+import Link from "next/link";
 
 export default async function Navbar() {
   const session = await getAuthSession();
@@ -38,7 +39,11 @@ export default async function Navbar() {
               <span className="font-semibold">{session.user.name}</span>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Billing</DropdownMenuItem>
+            <Link href="/billing">
+              <DropdownMenuItem className="cursor-pointer">
+                Billing
+              </DropdownMenuItem>
+            </Link>
             <DropdownMenuItem>
               <SignOutBtn className="w-full" />
             </DropdownMenuItem>
